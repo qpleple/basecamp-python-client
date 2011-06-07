@@ -2,7 +2,7 @@
 import elementtree.ElementTree as ET
 from basecamp import Basecamp
 
-bc = Basecamp('https://example.basecamphq.com', 'API_KEY', 'X')
+bc = Basecamp('https://example.basecamphq.com', 'API_KEY')
 # or 
 # bc = Basecamp('https://example.basecamphq.com', 'user', 'password')
 

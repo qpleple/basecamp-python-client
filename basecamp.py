@@ -33,7 +33,7 @@ import elementtree.ElementTree as ET
 
 class Basecamp(object):
 
-    def __init__(self, url, username, password):
+    def __init__(self, url, username, password = "X"):
         self.baseURL = url
         if self.baseURL[-1] == '/':
             self.baseURL = self.baseURL[:-1]
