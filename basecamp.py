@@ -26,30 +26,24 @@ Usage:
     # See the ElementTree website for more information on how to use it.
 """
 
-__author__ = 'Jochen Kupperschmidt <webmaster@nwsnet.de>'
-__version__ = '0.1'
-__date__ = '2006-05-21'
-
-
 import base64
 import urllib2
 
 import elementtree.ElementTree as ET
 
-
 class Basecamp(object):
 
-    def __init__(self, baseURL, username, password):
-        self.baseURL = baseURL
+    def __init__(self, url, username, password):
+        self.baseURL = url
         if self.baseURL[-1] == '/':
             self.baseURL = self.baseURL[:-1]
-        self.opener = urllib2.build_opener()
-        self.opener.addheaders = [
-            ('Content-Type', 'application/xml'),
-            ('Accept', 'application/xml'),
-            ('Authorization', 'Basic %s' \
-                % base64.encodestring('%s:%s' % (username, password)))]
-
+        
+        passman = urllib2.HTTPPasswordMgrWithDefaultRealm()
+        passman.add_password(None, url, username, password)
+        authhandler = urllib2.HTTPBasicAuthHandler(passman)
+        
+        self.opener = urllib2.build_opener(authhandler)
+        
     def _request(self, path, data=None):
         if isinstance(data, ET._ElementInterface):
             data = ET.tostring(data)
