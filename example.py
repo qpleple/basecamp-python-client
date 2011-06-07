@@ -12,4 +12,4 @@ items = ET.fromstring(xml).findall('todo-items/todo-item')
 
 # Let's use the ElementTree API to access data via path expressions:
 for item in items:
-    print element.find("content").text
+    print item.find("content").text
