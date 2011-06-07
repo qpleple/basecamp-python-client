@@ -287,7 +287,7 @@ class Basecamp(object):
         """
         This will return the metadata and items for a specific list.
         """
-        path = '/todos/list/%u' % list_id
+        path = '/todo_lists/%u.xml' % list_id
         return self._request(path)
 
     def create_todo_list(self, project_id, milestone_id=None, private=None,
