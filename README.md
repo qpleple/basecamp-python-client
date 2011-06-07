@@ -1,5 +1,7 @@
 Basecamp Python Client
 ======================
+**Warning** : it seems like the URLs for the API are now deprecated. They should be updated according to the API reference (http://www.basecamphq.com/api/)
+
 Description
 -----------
 This module provides an (almost) complete wrapper around the Basecamp API
