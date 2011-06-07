@@ -13,22 +13,23 @@ Usage:
     import elementtree.ElementTree as ET
     from basecamp import Basecamp
 
-    # Prepare the interaction with Basecamp.
-    bc = Basecamp('http://yourBasecamp.projectpath.com/', username, password)
+    bc = Basecamp('https://example.basecamphq.com', 'API_KEY')
+    # or 
+    # bc = Basecamp('https://example.basecamphq.com', 'user', 'password')
 
-    # Fetch the to-do lists of a project.
-    todolists = bc.todo_lists(yourProjectID)
+    # Fetch one todo list from its ID
+    xml = bc.todo_list(14499317)
+    items = ET.fromstring(xml).findall('todo-items/todo-item')
 
     # Let's use the ElementTree API to access data via path expressions:
-    for name in ET.fromstring(todolists).findall('todo-list/name'):
-        print name.text
+    for item in items:
+        print item.find("content").text
 
     # See the ElementTree website for more information on how to use it.
 """
 
 import base64
 import urllib2
-
 import elementtree.ElementTree as ET
 
 class Basecamp(object):
