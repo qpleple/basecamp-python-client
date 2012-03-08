@@ -1,6 +1,8 @@
 Basecamp Python Client
 ======================
-**Warning** : it seems like the URLs for the API are now deprecated. They should be updated according to the API reference (http://www.basecamphq.com/api/)
+**Warning** : the URLs for the API are now deprecated. They should be updated according to the API reference (http://www.basecamphq.com/api/)
+
+You can find a more up to date version of this code at https://github.com/nowherefarm/basecamp.
 
 Description
 -----------
