@@ -1,4 +1,4 @@
-Basecamp Python Client
+[DEPRECATED] Basecamp Python Client
 ======================
 **Warning** : the URLs for the API are now deprecated. They should be updated according to the API reference (http://www.basecamphq.com/api/)
 
